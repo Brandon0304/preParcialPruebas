@@ -78,3 +78,28 @@ Respecto al requerimiento 4 (no duplicar notas en el mismo semestre):
 | **CP10** | R4 | Registro duplicado misma materia/semestre | Nota ya registrada | materia: "Matemáticas", semestre: "2024-1" | Intentar registrar misma materia/semestre | Error: Nota duplicada | Negativo |
 | **CP11** | R4 | Misma materia en diferente semestre | Nota previa en "2023-2" | materia: "Matemáticas", semestre: "2024-1" | Registrar materia en nuevo semestre | Nota guardada exitosamente | Positivo |
 | **CP12** | R4 | Diferentes materias mismo semestre | Estudiante con nota en "Física" | materia: "Química", semestre: "2024-1" | Registrar nueva materia | Nota guardada exitosamente | Positivo |
+
+---
+
+## Guía de ejecución
+
+Para probar el sistema, primero instalé las dependencias necesarias:
+
+```bash
+pip install pytest pytest-bdd
+```
+
+### Ejecutar pruebas
+Para correr todos los tests que hice (tanto los de TDD como los de BDD), usé estos comandos:
+
+- **Tests unitarios (TDD):**
+  ```bash
+  pytest tests/
+  ```
+
+- **Escenarios BDD (Gherkin):**
+  ```bash
+  pytest features/
+  ```
+
+Con esto se verifica que todos los requerimientos del Product Owner funcionan como se espera.
