@@ -3,11 +3,14 @@ class SistemaNotas:
         # almacenamiento simple: { (estudiante, materia, semestre): nota }
         self.notas = {}
 
+    def _generar_clave(self, estudiante, materia, semestre):
+        return (estudiante, materia, semestre)
+
     def registrar_nota(self, estudiante, materia, semestre, nota):
         if nota < 0.0 or nota > 5.0:
             raise ValueError("Nota fuera de rango")
         
-        clave = (estudiante, materia, semestre)
+        clave = self._generar_clave(estudiante, materia, semestre)
         if clave in self.notas:
             raise ValueError("La nota para esta materia ya fue registrada en este semestre")
             
@@ -15,7 +18,7 @@ class SistemaNotas:
         return True
 
     def obtener_estado(self, estudiante, materia, semestre):
-        clave = (estudiante, materia, semestre)
+        clave = self._generar_clave(estudiante, materia, semestre)
         nota = self.notas.get(clave)
         
         if nota is None:
