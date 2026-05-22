@@ -8,6 +8,9 @@ class SistemaNotas:
             raise ValueError("Nota fuera de rango")
         
         clave = (estudiante, materia, semestre)
+        if clave in self.notas:
+            raise ValueError("La nota para esta materia ya fue registrada en este semestre")
+            
         self.notas[clave] = nota
         return True
 
